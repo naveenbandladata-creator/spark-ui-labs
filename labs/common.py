@@ -41,3 +41,9 @@ def keep_open(spark, seconds=None):
         except EOFError:
             time.sleep(600)
     spark.stop()
+
+def warm_up(spark):
+    """Run a throwaway job first so the first real job doesn't pay the JVM start-up cost (fair A/B timings)."""
+    label(spark, "warm-up (ignore)")
+    from pyspark.sql import functions as F
+    spark.range(0, 2_000_000).groupBy((F.col("id") % 10).alias("k")).count().write.mode("overwrite").format("noop").save()

@@ -20,7 +20,8 @@ python3 ep02_one_action_many_jobs.py
 Open the link it prints (usually **http://localhost:4040**). The app waits for you to press Enter,
 because the Spark UI disappears when the app stops.
 
-Each lab file starts with a **Your turn** section. Exercise episodes (6, 12, 18, 24) have answers in `answers/`. Try first.
+Each lab file starts with a **Your turn** section. Exercise episodes (6, 12, 18, 24) have answers in `answers/`.
+Some labs write a small Parquet table under `/tmp/spark-ui-labs/`. Try first.
 
 Stop the cluster: `bash stop_cluster.sh`
 
@@ -47,3 +48,9 @@ They will not match exactly: timings depend on your machine.
 | 10 | ep10_spill.py | ~420 MB spilled with 2 partitions, 0 with 32 |
 | 11 | ep11_executors.py | a failed-then-retried task, a dead executor, a replacement |
 | 12 | ep12_spot_the_problem_2.py | exercise: even record counts hiding 26x bigger data |
+| 13 | ep13_sql_follow_the_rows.py | a join turning 1M rows into 3M; dropDuplicates shows up as HashAggregate |
+| 14 | ep14_which_join.py | BroadcastHashJoin (1 Exchange) vs SortMergeJoin (3), ~3.5 s vs ~8 s |
+| 15 | ep15_scan_node.py | 1 of 12 month folders read; 24 MB vs 190 MB read from the same files |
+| 16 | ep16_aqe.py | 200 tasks -> 1 after AQE; sort-merge join switched to broadcast at runtime |
+| 17 | ep17_storage_cache.py | a cache that never filled, 6 of 16 partitions cached, a 5 s -> 1 s second use |
+| 18 | ep18_spot_the_problem_3.py | exercise: all 12 folders read, and a join that makes revenue 4x too big |
