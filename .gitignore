@@ -1,0 +1,5 @@
+__pycache__/
+logs/
+spark-warehouse/
+metastore_db/
+*.log
