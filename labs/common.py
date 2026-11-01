@@ -30,6 +30,9 @@ def jobs_in(spark, text):
 def keep_open(spark, seconds=None):
     """The UI disappears when the app stops, so wait before stopping."""
     seconds = seconds or (float(os.environ["LAB_KEEP"]) if os.environ.get("LAB_KEEP") else None)
+    ready = os.environ.get("LAB_READY_FILE")          # used by the studio capture tool
+    if ready:
+        open(ready, "w").write(spark.sparkContext.uiWebUrl)
     if seconds:
         time.sleep(seconds)
     else:

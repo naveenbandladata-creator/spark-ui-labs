@@ -41,3 +41,9 @@ They will not match exactly: timings depend on your machine.
 | 4 | ep04_read_the_dag.py | DAG and SQL graph, 3 Exchange boxes |
 | 5 | ep05_timeline_gaps.py | idle gaps from driver-side Python and toPandas |
 | 6 | ep06_spot_the_problem_1.py | exercise: 40 jobs for one report |
+| 7 | ep07_summary_metrics.py | one task reads ~31x the median records |
+| 8 | ep08_task_timeline.py | 400 tiny tasks ~6x slower than 4 normal ones |
+| 9 | ep09_shuffle_read_write.py | ~105 MB shuffled vs a few KB for the same answer |
+| 10 | ep10_spill.py | ~420 MB spilled with 2 partitions, 0 with 32 |
+| 11 | ep11_executors.py | a failed-then-retried task, a dead executor, a replacement |
+| 12 | ep12_spot_the_problem_2.py | exercise: even record counts hiding 26x bigger data |
