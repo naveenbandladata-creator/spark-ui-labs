@@ -20,7 +20,7 @@ python3 ep02_one_action_many_jobs.py
 Open the link it prints (usually **http://localhost:4040**). The app waits for you to press Enter,
 because the Spark UI disappears when the app stops.
 
-Each lab file starts with a **Your turn** section. Exercise episodes (6, 12, 18, 24) have answers in `answers/`.
+Each lab file starts with a **Your turn** section. Exercise episodes (6, 12, 18, 24) have answers in `answers/`. The 5-minute checklist is at the end of `answers/ep24.md`.
 Some labs write a small Parquet table under `/tmp/spark-ui-labs/`. Try first.
 
 Stop the cluster: `bash stop_cluster.sh`
@@ -54,3 +54,9 @@ They will not match exactly: timings depend on your machine.
 | 16 | ep16_aqe.py | 200 tasks -> 1 after AQE; sort-merge join switched to broadcast at runtime |
 | 17 | ep17_storage_cache.py | a cache that never filled, 6 of 16 partitions cached, a 5 s -> 1 s second use |
 | 18 | ep18_spot_the_problem_3.py | exercise: all 12 folders read, and a join that makes revenue 4x too big |
+| 19 | ep19_skew_fix.py | 3.2M vs 56K records; salting and the AQE skew join (16 splits) even it out |
+| 20 | ep20_partition_count.py | 2000 partitions ~90 s, 2 spill, 16 ~8 s; AQE's default target is tuned for real executors |
+| 21 | ep21_python_udf_cost.py | Python UDF ~2.3x slower than built-ins; BatchEvalPython vs ArrowEvalPython |
+| 22 | ep22_driver_bottleneck.py | idle executors during a driver loop; maxResultSize refusing a 62 MB collect |
+| 23 | ep23_case_study.py | one job, three fixes: ~22 s -> ~4.5 s |
+| 24 | ep24_final_exam.py | three unseen jobs + the 5-minute checklist |
